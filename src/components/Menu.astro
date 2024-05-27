@@ -1,0 +1,131 @@
+---
+const navItem = [
+  {
+    title: "BESTIL",
+    href: "/bestil",
+  },
+  {
+    title: "KONTAKT",
+    href: "/kontakt",
+  },
+  // {
+  //   title: "LOGIN",
+  //   href: "/login",
+  // },
+];
+---
+
+<div class="off-sceen-menu">
+  <ul>
+    <li><a href="/">Forside</a></li>
+    <li><a href="/features">Features</a></li>
+    <li><a href="/om">Om</a></li>
+    <li><a href="/kontakt">kontakt</a></li>
+  </ul>
+  <!-- <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+    {
+      navItem.map((item) => (
+        <li>
+          <a class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-orange-700 md:p-0 font-textFont" href={item.href}>
+            {item.title}
+          </a>
+        </li>
+      ))
+    }
+    <li><a href="/login"><i class="fa-solid fa-regular fa-user"></i></a></li>
+    <li class="max-sm:hidden"><i class="fa-solid fa-cart-shopping"></i></li>
+  </ul> -->
+</div>
+
+<nav>
+  
+  <div class="grid w-full place-items-center">
+    <h2 class=" text-3xl font-bold sm:text-4xl font-sans text-maintxt "><a href="/"> Join <span class="text-blue-700" font-sans">Our Team</span></h2>
+    <!-- <h4 class="font-sans font-bold text-black sm:text-3xl">Join Our Team</h4> -->
+    <h6 class="font-sans text-lg font-medium text-copli">Fremtidens rekrutteringsværktøj</h6></a>
+  </div>
+
+  <div class="ham-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<style>
+ 
+  .off-sceen-menu {
+    background-color: #313C46;
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    right: -450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2.5rem;
+    transition: 0.3s ease;
+  }
+  .off-sceen-menu.active {
+    right: 0;
+  }
+  nav {
+    padding: 1rem;
+    display: flex;
+    padding-right: 5%;
+    /* background-color: rgb(34,37,49); */
+  }
+  ul li {
+    color: white;
+  }
+  .ham-menu {
+    height: 50px;
+    width: 50px;
+    padding: 0.5rem;
+    cursor: pointer;
+    margin-left: auto;
+    position: relative;
+  }
+  .ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: #ffff;
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s ease;
+  }
+  .ham-menu span:nth-child(1) {
+    top: 25%;
+  }
+  .ham-menu span:nth-child(3) {
+    top: 75%;
+  }
+  .ham-menu.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .ham-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .ham-menu.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+</style>
+
+<script>
+  const hamMenu = document.querySelector(".ham-menu");
+  const offSceenMenu = document.querySelector(".off-sceen-menu");
+
+  hamMenu.addEventListener("click", () => {
+    hamMenu.classList.toggle("active");
+    offSceenMenu.classList.toggle("active");
+  });
+</script>

@@ -1,0 +1,38 @@
+---
+// @ts-nocheck
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import { supabase } from "../../util/database.js";
+export async function getStaticPaths() {
+  const { data, error } = await supabase.from("Studytube").select("Media");
+
+  const categories = [];
+  const memory = [];
+  data.forEach((item) => {
+    if (!memory.includes(item.Media)) {
+      memory.push(item.Media);
+      categories.push({ params: { cat: item.Media } });
+    }
+  });
+
+  return categories;
+}
+
+const { cat } = Astro.params;
+//hent alle rækker der matcher cat
+const { data, error } = await supabase
+  .from("Studytube")
+  .select()
+  .eq("Media", cat);
+---
+
+<Layout title={"Studytube " + cat}>
+  <h1 class="mb-8 text-5xl font-bold">{cat}</h1>
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+    {
+      data.map((item) => {
+        return <Card {...item} />;
+      })
+    }
+  </div>
+</Layout>

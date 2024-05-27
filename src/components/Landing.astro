@@ -1,0 +1,132 @@
+
+
+<!-- <div class=" relative mb-10 mx-auto ">   -->
+     <img src="../picturs/BM_pic.jpg" alt="img of cyber man" class="  mb-9 px-9 h-70 object-cover rounded-md " />
+     
+     
+     <!-- !hvad sker der her, menu går bag foto pga denne bid -->
+     <!-- <div class="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
+  <div class="absolute inset-0 flex items-center justify-center">
+      <h2 class="text-maintxt text-3xl font-bold bg-backg p-9 ">Danmarks nyeste værktøj til AI</h2>
+  </div> -->
+
+
+<div class="info mg-20 grid grid-cols-2 gap-2"> <div class="text-info grid h-fit justify-self-center">
+    <h2 class="my-4 font-sans text-3xl font-bold sm:text-4xl  text-copli ">Danmarks <span class="font-sans text-maintxt">nye <h2></h2> rekruterings værktøj</span></h2>
+
+    <a href="/features" class="w-max self-start text-2xl underline text-maintxt">Læs mere</a>
+  </div>
+
+  
+  <div class="tabs mr-8 mb-10">
+    <div class="container">
+      <ul class="tab-button-list">
+        <li>
+          <button class="tab-button btn-active font-sans font-semibold" data-tab-button="1">Tilpasse ansøgning</button>
+        </li>
+        <li>
+          <button class="tab-button font-sans font-semibold" data-tab-button="2">CV tilpasset jobopslag</button>
+        </li>
+        <li>
+          <button class="tab-button font-sans font-semibold" data-tab-button="3">Jobmach for jobansøgere</button>
+        </li>
+        <li>
+          <button class="tab-button font-sans font-semibold" data-tab-button="4">Kandidat match for virksomheder</button>
+        </li>
+      </ul>
+    </div>
+    <div class="container ">
+      <div class="content active font-sans font-normal text-maintxt text-xl mt-8" data-content="1">
+        <p>Løsningen kan analysere en brugers CV og jobansøgning for at identificere relevante færdigheder, erfaringer og uddannelsesmæssige baggrunde.</p>
+      </div>
+      <div class="content font-sans font-normal text-maintxt text-xl" data-content="2">
+        <p>Vores løsning kan tage brugerens personlige kompetencer fra en anden brugerprofil (eks. LinkedIn) og omdanne dem til et CV.</p>
+      </div>
+      <div class="content font-sans font-normal text-maintxt text-xl" data-content="3">
+        <p>Systemet vil præsentere 3-5 jobmach for hver jobansøger baseret på ansøgerens CV.</p>
+      </div>
+      <div class="content font-sans font-normal text-maintxt text-xl" data-content="4">
+        <p>Platformen hjælper virksomheder med at finde egnede kandidater og matche med opslag.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <style>
+    .info {
+    }
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .container ul {
+      list-style: none;
+    }
+    .tabs .content {
+      overflow: hidden;
+      transition: max-height 0.15s ease-out;
+      max-height: 0;
+    }
+    .tabs .content h2 {
+      margin-top: 0;
+    }
+    .tabs .container {
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      align-items: flex-start;
+    }
+    .tabs .active {
+      max-height: 500px;
+    }
+    .tab-button-list {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    .tab-button-list li .tab-button {
+      appearance: unset;
+      width: 100%;
+      outline: solid 1px rgb(34, 37, 49);
+      padding: 15px 25px;
+      background: #313C46;
+      text-align: left;
+      padding-left: 20px;
+      transition: all 0.15s ease-in-out;
+      color: #369E95;
+    }
+    .tab-button-list li .btn-active {
+      background-color: #CB6A4E;
+      color: #fdfdfd;
+      /* outline: solid 2px gray; */
+    }
+
+    .tab-button-list li .tab-button:hover {
+      outline: solid 2px white;
+    }
+  </style>
+
+  <script>
+    const buttons = document.querySelectorAll(".tab-button");
+    const contentElements = document.querySelectorAll(".content");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", (_e) => {
+        buttons.forEach((button) => button.classList.remove("btn-active"));
+        contentElements.forEach((element) => element.classList.remove("active"));
+        const tabId = button.getAttribute("data-tab-button");
+        const contentElement = document.querySelector(`[data-content="${tabId}"]`);
+
+        button.classList.add("btn-active");
+        contentElement.classList.add("active");
+      });
+      button.removeEventListener("click", (_e) => {});
+    });
+  </script>
+</div>
